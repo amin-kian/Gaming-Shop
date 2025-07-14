@@ -22,7 +22,6 @@ const pages = [
 ];
 
 export default function MegaMenu({top, isOpen}) {
-    // Don't render the menu until its position is calculated
     if (!top) return null;
 
     return (
@@ -34,9 +33,7 @@ export default function MegaMenu({top, isOpen}) {
             `}
             style={{top: `${top}px`}}
         >
-            {/* Inner container for padding and scrolling */}
             <div className="h-full overflow-y-auto p-8">
-                {/* A responsive 6-column grid for the content */}
                 <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 lg:grid-cols-6">
                     {pages.map((item, index) => (
                         <Link

@@ -11,7 +11,7 @@ export default function Header() {
     return (
         <header className="bg-[#23252d] text-white">
             {/*top part of header*/}
-            <div className='px-16 grid items-center grid-cols-3 py-8'>
+            <div className="px-16 grid items-center grid-cols-3 py-8">
                 <div className="justify-self-start">
                     <Logo/>
                 </div>
@@ -29,7 +29,7 @@ export default function Header() {
 
             {/*bottom part of header*/}
             <div className="py-5 px-16 flex justify-between items-center ">
-                <div className='flex justify-between items-center gap-8'>
+                <div className="flex justify-between items-center gap-8">
                     <HeaderCategoryMenu/>
                     <HeaderNav/>
                 </div>
@@ -38,5 +38,5 @@ export default function Header() {
                 </div>
             </div>
         </header>
-    )
+    );
 }

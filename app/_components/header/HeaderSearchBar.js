@@ -1,10 +1,10 @@
 export default function HeaderSearchBar() {
     return (
-        <div className="relative w-[500px]">
+        <div className="relative w-full">
             <input
                 type="text"
                 placeholder="Search product"
-                className="w-full h-14 rounded-full bg-white pl-5 pr-14 text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-shadow"
+                className="w-130 h-14 rounded-full bg-white pl-5 pr-14 text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-shadow"
             />
 
             <button
@@ -15,8 +15,7 @@ export default function HeaderSearchBar() {
                     viewBox="0 0 24 24"
                     strokeWidth={2.5}
                     stroke="currentColor"
-                    className="size-6"
-                >
+                    className="size-6">
                     <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
