@@ -3,7 +3,7 @@
 import Slider from "@/app/_components/slider/Slider";
 import ProductCard from "@/app/_components/products/ProductCard";
 
-export default function ProductsSlider({title, data}) {
+export default function ProductsSliderContainer({title, data}) {
 
     return (
         <section className="py-20 bg-white relative hover-parent">

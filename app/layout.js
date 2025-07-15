@@ -1,6 +1,9 @@
+// app/layout.js
+
 import {Poppins} from 'next/font/google';
 import "./globals.css";
-import Header from "@/app/_components/header/Header";
+import ResponsiveHeader from "@/app/_components/ResponsiveHeader";
+
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -21,9 +24,8 @@ export const metadata = {
 export default function RootLayout({children}) {
     return (
         <html lang="en">
-        {/* 3. کلاس فونت را به تگ body اضافه کنید */}
         <body className={poppins.className}>
-        <Header/>
+        <ResponsiveHeader/>
         <main>
             {children}
         </main>

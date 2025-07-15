@@ -41,3 +41,78 @@ export function getProducts(count) {
         };
     });
 }
+
+export function getCustomerReviews(count) {
+    return Array.from({length: count}, (_, i) => {
+        return {
+            id: faker.string.uuid(),
+            customerName: faker.person.fullName(),
+            purchasedItem: `HTC VIVE Pro Virtual Reality Headset`,
+            reviewText: faker.lorem.paragraph({min: 2, max: 4}),
+            rating: faker.number.int({min: 4, max: 5}),
+            customerImage: `https://picsum.photos/720/720?random=${i}`
+        };
+    });
+}
+
+export function getNavItems() {
+    return [
+        {
+            title: 'Home',
+            subLinks: [
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+                {
+                    title: 'Home Fashion 01',
+                    src: '/img/header-mega-menu.jpg'
+                },
+            ]
+        },
+        {
+            title: 'Shop', children: []
+        },
+        {
+            title: 'Products', children: []
+        },
+        {
+            title: 'Pages', children: []
+        },
+        {
+            title: 'Blog', children: []
+        },
+    ]
+}

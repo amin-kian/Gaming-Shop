@@ -2,9 +2,10 @@ import FeaturedProducts from "@/app/_components/products/FeaturedProducts";
 import StoreFeatures from "@/app/_components/StoreFeatures";
 import ShopByCategory from "@/app/_components/categorySlider/ShopByCategory";
 import HotDeals from "@/app/_components/products/HotDeals";
-import ProductsSlider from "@/app/_components/products/ProductsSlider";
+import ProductsSliderContainer from "@/app/_components/products/ProductsSliderContainer";
 import InteractiveHero from "@/app/_components/interactiveHero/InteractiveHero";
 import {getCategories, getProducts} from "@/app/_lib/data-service";
+import CustomerReviews from "@/app/_components/testimonials/CustomerReviews";
 
 export const metadata = {
     title: "Home Page",
@@ -33,6 +34,7 @@ const hotspotsData = [
     },
 ];
 
+
 export default function Home() {
     return (
         <div>
@@ -40,12 +42,14 @@ export default function Home() {
             <StoreFeatures/>
             <ShopByCategory data={categories}/>
             <HotDeals data={products}/>
-            <ProductsSlider title={'Popular Product'} data={products}/>
+            <ProductsSliderContainer title={'Popular Product'} data={products}/>
             <InteractiveHero
                 backgroundImage="/img/heroInteractiveBg.webp"
                 hotspots={hotspotsData}
             />
-            <ProductsSlider title={'Recommended Product'} data={products}/>
+            <ProductsSliderContainer title={'Recommended Product'} data={products}/>
+            <CustomerReviews/>
+            <div className='w-full bg-amber-500 h-[600px]'></div>
         </div>
     );
 }

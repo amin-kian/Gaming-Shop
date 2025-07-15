@@ -1,27 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const pages = [
-    // I've added more items to demonstrate scrolling
-    {title: 'Home Fashion 01', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 02', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 03', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 04', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 05', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 06', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 07', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 08', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 09', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 10', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 11', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 12', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 13', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 14', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 15', src: '/img/header-mega-menu.jpg'},
-    {title: 'Home Fashion 16', src: '/img/header-mega-menu.jpg'},
-];
 
-export default function MegaMenu({top, isOpen}) {
+export default function MegaMenu({items, top, isOpen}) {
     if (!top) return null;
 
     return (
@@ -35,7 +16,7 @@ export default function MegaMenu({top, isOpen}) {
         >
             <div className="h-full overflow-y-auto p-8">
                 <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 lg:grid-cols-6">
-                    {pages.map((item, index) => (
+                    {items.map((item, index) => (
                         <Link
                             href="#"
                             key={index}

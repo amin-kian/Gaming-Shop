@@ -1,13 +1,11 @@
 import Logo from "@/app/_components/header/Logo";
-import HeaderSearchBar from "@/app/_components/header/HeaderSearchBar";
-import HeaderButtons from "@/app/_components/header/HeaderButtons";
-import HeaderNav from "@/app/_components/header/HeaderNav";
-import HeaderCategoryMenu from "@/app/_components/header/HeaderCategoryMenu";
-import HeaderSupportInfo from "@/app/_components/header/HeaderSupportInfo";
+import SearchBar from "@/app/_components/header/SearchBar";
+import Buttons from "@/app/_components/header/Buttons";
+import Nav from "@/app/_components/header/Nav";
+import HeaderCategoryMenu from "@/app/_components/header/CategoryMenu";
+import SupportInfo from "@/app/_components/header/SupportInfo";
 
-export default function Header() {
-    const cartItemCount = 0;
-
+export default function Header({cartItemCount}) {
     return (
         <header className="bg-[#23252d] text-white">
             {/*top part of header*/}
@@ -17,11 +15,11 @@ export default function Header() {
                 </div>
 
                 <div className="justify-self-center">
-                    <HeaderSearchBar/>
+                    <SearchBar/>
                 </div>
 
                 <div className="justify-self-end">
-                    <HeaderButtons cartItemCount={cartItemCount}/>
+                    <Buttons cartItemCount={cartItemCount}/>
                 </div>
             </div>
 
@@ -31,10 +29,10 @@ export default function Header() {
             <div className="py-5 px-16 flex justify-between items-center ">
                 <div className="flex justify-between items-center gap-8">
                     <HeaderCategoryMenu/>
-                    <HeaderNav/>
+                    <Nav/>
                 </div>
                 <div>
-                    <HeaderSupportInfo/>
+                    <SupportInfo/>
                 </div>
             </div>
         </header>

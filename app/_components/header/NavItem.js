@@ -2,8 +2,9 @@
 
 import {useEffect, useRef, useState} from "react";
 import MegaMenu from "@/app/_components/header/MegaMenu";
+import {IoIosArrowDown} from "react-icons/io";
 
-export default function NavItem({children, hasArrow = false, hasMegaMenu = false}) {
+export default function NavItem({children, itemSubLinks, hasArrow = false,}) {
     const [isHovered, setIsHovered] = useState(false);
     const [menuTopPosition, setMenuTopPosition] = useState(0);
     const navItemRef = useRef(null);
@@ -11,7 +12,7 @@ export default function NavItem({children, hasArrow = false, hasMegaMenu = false
     // This effect now correctly finds the entire header and recalculates on resize
     useEffect(() => {
         const calculatePosition = () => {
-            if (hasMegaMenu && navItemRef.current) {
+            if (itemSubLinks && itemSubLinks.length > 0 && navItemRef.current) {
                 // Find the closest parent <header> element
                 const headerElement = navItemRef.current.closest('header');
                 if (headerElement) {
@@ -32,7 +33,7 @@ export default function NavItem({children, hasArrow = false, hasMegaMenu = false
         return () => {
             window.removeEventListener('resize', calculatePosition);
         };
-    }, [hasMegaMenu]); // The dependency array is correct
+    }, [itemSubLinks]); // The dependency array is correct
 
     return (
         <li
@@ -42,23 +43,12 @@ export default function NavItem({children, hasArrow = false, hasMegaMenu = false
             onMouseLeave={() => setIsHovered(false)}
         >
             {/* Always render the menu, but pass `isHovered` to control its visibility */}
-            {hasMegaMenu && <MegaMenu top={menuTopPosition} isOpen={isHovered}/>}
+            {itemSubLinks && itemSubLinks.length > 0 &&
+                <MegaMenu items={itemSubLinks} top={menuTopPosition} isOpen={isHovered}/>}
 
             <span>{children}</span>
             {hasArrow && (
-                <svg
-                    className="transition-transform group-hover:translate-y-px"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="10"
-                    height="7"
-                    viewBox="0 0 10 7"
-                    fill="none"
-                >
-                    <path
-                        d="M10 1.24243L5 6.24243L-2.18557e-07 1.24243L0.8875 0.354932L5 4.46743L9.1125 0.354931L10 1.24243Z"
-                        fill="currentColor"
-                    ></path>
-                </svg>
+                <IoIosArrowDown/>
             )}
             <div
                 className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-white transition-transform duration-300 ease-out group-hover:scale-x-100"/>
