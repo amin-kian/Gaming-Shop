@@ -1,55 +1,65 @@
 import FeaturedProducts from "@/app/_components/products/FeaturedProducts";
-import StoreFeatures from "@/app/_components/StoreFeatures";
+import AdvertisementSlider from "@/app/_components/advertisementSlider/AdvertisementSlider";
 import ShopByCategory from "@/app/_components/categorySlider/ShopByCategory";
-import HotDeals from "@/app/_components/products/HotDeals";
+import StoreFeatures from "@/app/_components/storeFeature/StoreFeatures";
 import ProductsSliderContainer from "@/app/_components/products/ProductsSliderContainer";
-import InteractiveHero from "@/app/_components/interactiveHero/InteractiveHero";
-import {getCategories, getProducts} from "@/app/_lib/data-service";
 import CustomerReviews from "@/app/_components/testimonials/CustomerReviews";
+import BrandCarousel from "@/app/_components/brandCarousel/BrandCarousel";
+import InteractiveHero from "@/app/_components/interactiveHero/InteractiveHero";
+import {getCustomerReviews, getHotspotsData, getProducts} from "@/app/_lib/fakerJs";
+import {getCategories, getSaleEndDate} from "@/app/_lib/staticData";
+import TimerLoader from "@/app/_components/products/CountDownLoader";
+import Footer from "@/app/_components/footer/Footer";
+import MapLoader from "@/app/_components/map/MapLoader";
+import MobileNav from "@/app/_components/mobileBottomNav/MobileNav";
 
 export const metadata = {
     title: "Home Page",
 };
 
-const products = getProducts(8);
-const categories = getCategories(8)
-const hotspotsData = [
-    {
-        id: 1,
-        position: {top: 75, left: 45},
-        product: {
-            name: products[0].name,
-            price: products[0].price,
-            image: products[0].image,
-        }
-    },
-    {
-        id: 2,
-        position: {top: 30, left: 72},
-        product: {
-            name: products[1].name,
-            price: products[1].price,
-            image: products[1].image,
-        }
-    },
-];
+
+export default async function Home() {
+    const products = await getProducts(8);
+    const hotspotsData = await getHotspotsData();
+    const reviews = await getCustomerReviews(5);
 
 
-export default function Home() {
+    const categories = getCategories()
+    const saleEndDate = getSaleEndDate();
+    const wishlistCount = 0;
+    const cartCount = 0;
+    
     return (
         <div>
-            <FeaturedProducts data={products.slice(0, 2)}/>
+            <FeaturedProducts products={products.slice(0, 2)}/>
+
+            <AdvertisementSlider/>
+
             <StoreFeatures/>
-            <ShopByCategory data={categories}/>
-            <HotDeals data={products}/>
-            <ProductsSliderContainer title={'Popular Product'} data={products}/>
+
+            <ShopByCategory categories={categories}/>
+
+            <ProductsSliderContainer title={"Hot Deals"} data={products} bg={'bg-gray-100'} showAddToCardBigBtn={false}>
+                <TimerLoader targetDate={saleEndDate}/>
+            </ProductsSliderContainer>
+
+            <ProductsSliderContainer title={'Popular Product'} data={products} showAddToCardBigBtn={true}/>
+
             <InteractiveHero
-                backgroundImage="/img/heroInteractiveBg.webp"
                 hotspots={hotspotsData}
             />
-            <ProductsSliderContainer title={'Recommended Product'} data={products}/>
-            <CustomerReviews/>
-            <div className='w-full bg-amber-500 h-[600px]'></div>
+
+            <ProductsSliderContainer title={'Recommended Product'} data={products} showAddToCardBigBtn={true}/>
+
+            <CustomerReviews reviews={reviews}/>
+
+            <BrandCarousel/>
+
+            <MapLoader/>
+
+            <Footer/>
+
+            <MobileNav wishlistCount={wishlistCount} cartItemCount={cartCount}/>
         </div>
     );
 }

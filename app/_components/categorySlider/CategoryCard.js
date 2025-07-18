@@ -16,7 +16,7 @@ export default function CategoryCard({image, name}) {
                     />
                 </div>
             </div>
-            <p className="mt-5 text-xl font-medium text-gray-300 text-center transition-colors duration-300 group-hover:text-purple-600">
+            <p className="mt-2 md:mt-5 md:text-xl font-medium text-gray-300 text-center transition-colors duration-300 group-hover:text-purple-600">
                 {name}
             </p>
         </Link>)

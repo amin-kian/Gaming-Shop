@@ -1,36 +1,20 @@
-'use client';
-
-import {useEffect, useState} from 'react';
 import Header from "@/app/_components/header/Header";
 import HeaderMobile from "@/app/_components/headerMobile/HeaderMobile";
 
 export default function ResponsiveHeader() {
-    const cartItemCount = 0
-    const [width, setWidth] = useState(undefined);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setWidth(window.innerWidth);
-        };
-
-        setWidth(window.innerWidth);
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-    const breakpoint = 1024;
-
-    if (width === undefined) {
-        return null;
-    }
+    const cartItemCount = 0;
 
     return (
         <>
-            {width >= breakpoint ? <Header cartItemCount={cartItemCount}/> :
-                <HeaderMobile cartItemCount={cartItemCount}/>}
+            {/* Render desktop header and hide on mobile */}
+            <div className="hidden lg:block">
+                <Header cartItemCount={cartItemCount}/>
+            </div>
+
+            {/* Render mobile header and hide on desktop */}
+            <div className="block lg:hidden">
+                <HeaderMobile cartItemCount={cartItemCount}/>
+            </div>
         </>
     );
 }

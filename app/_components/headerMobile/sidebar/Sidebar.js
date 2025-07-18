@@ -1,5 +1,3 @@
-// components/MobileSidebar.js
-
 import React, {useEffect} from 'react';
 import {FaRegHeart, FaRegUser, FaSearch} from "react-icons/fa";
 import {IoClose} from "react-icons/io5";

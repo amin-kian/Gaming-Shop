@@ -2,7 +2,7 @@ import {FaSearch} from "react-icons/fa";
 
 export default function SearchBar() {
     return (
-        <div className="relative w-full">
+        <form className="relative w-[85%]">
             <input
                 type="text"
                 placeholder="Search product"
@@ -13,6 +13,6 @@ export default function SearchBar() {
                 className="absolute right-1.5 top-1/2 -translate-y-1/2 h-11 w-22 bg-black rounded-full flex items-center justify-center text-white hover:bg-purple-500 transition-colors">
                 <FaSearch/>
             </button>
-        </div>
+        </form>
     );
 }

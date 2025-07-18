@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* /app/globals.css */
-
-@import "tailwindcss";
-
 @keyframes custom-ping {
     75%, 100% {
         transform: scale(2);
@@ -47,6 +43,21 @@ body {
     background: var(--background);
     color: var(--foreground);
     font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom Swiper Pagination Styles */
+.custom-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #6b7280; /* gray-500 */
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+    background-color: #000000; /* The inner black dot */
+    outline: 1px solid #000000; /* The outer empty ring */
+    outline-offset: 3px; /* The space between the dot and the ring */
 }
 
 

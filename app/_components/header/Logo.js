@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import {getShopInfo} from "@/app/_lib/staticData";
 
 export default function Logo() {
     return (
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-start justify-start">
             <svg
                 width="180"
                 height="60"
@@ -17,7 +18,7 @@ export default function Logo() {
                     fontWeight="700"
                     fill="white"
                 >
-                    ecomus
+                    {getShopInfo().name}
                 </text>
             </svg>
         </Link>

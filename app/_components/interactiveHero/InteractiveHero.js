@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import Hotspot from './Hotspot';
+import {getInteractiveHeroBg} from "@/app/_lib/staticData";
 
-export default function InteractiveHero({backgroundImage, hotspots}) {
+export default function InteractiveHero({hotspots}) {
+    const backgroundImage = getInteractiveHeroBg().src
     return (
-        <section className="relative w-full h-[700px] bg-black">
+        <section className="relative w-full h-[300px] md:h-[500px] lg:h-[700px] bg-black">
             {/* Background Image */}
             <Image
                 src={backgroundImage}

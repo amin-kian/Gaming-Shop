@@ -8,7 +8,7 @@ export default function FeaturedProductCards({
                                                  href,
                                              }) {
     return (
-        <div className="relative rounded-lg overflow-hidden group w-full h-[700px]">
+        <div className="relative rounded-lg overflow-hidden group w-full h-[420px] md:h-[650px]">
             <Image
                 src={image}
                 alt={name}

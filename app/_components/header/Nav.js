@@ -1,4 +1,4 @@
-import {getNavItems} from "@/app/_lib/data-service";
+import {getNavItems} from "@/app/_lib/staticData";
 import NavItem from "@/app/_components/header/NavItem";
 
 export default function Nav() {

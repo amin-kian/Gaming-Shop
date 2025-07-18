@@ -1,12 +1,12 @@
 import React from "react";
-import {getCategories} from "@/app/_lib/data-service";
 import Image from "next/image";
 import {IoGridOutline} from "react-icons/io5";
 import {MdArrowOutward} from "react-icons/md";
+import {getCategories} from "@/app/_lib/staticData";
 
-const menuItems = getCategories(5);
 
 export default function CategoryMenu() {
+    const menuItems = getCategories();
     return (
         <div className="relative group">
             <button
@@ -26,7 +26,6 @@ export default function CategoryMenu() {
                             <a
                                 href="#"
                                 className="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
-                                {/* Replace the placeholder div with the Image component */}
                                 <Image
                                     src={item.image}
                                     alt={item.name}

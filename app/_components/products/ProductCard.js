@@ -1,5 +1,3 @@
-// /app/_components/products/ProductCard.js
-
 import Image from 'next/image';
 import Link from 'next/link';
 import ProductCardActionButtons from "@/app/_components/products/CardActionButtons";
@@ -9,10 +7,11 @@ export default function ProductCard({product, showAddToCardBigBtn}) {
     const {name, image, imageHover, price, originalPrice, discount, colors} = product;
 
     return (
-        <div className="flex-shrink-0 w-full border border-gray-300 bg-white rounded-lg shadow-md p-4 pb-10 group">
+        <div
+            className="w-full border border-gray-300 bg-white rounded-lg shadow-md p-1.5 md:p-4 pb-5 md:pb-10 group">
             <Link href="#">
-                {/* 1. Add 'group/image' to create a nested group for the image-specific hover effect */}
-                <div className="relative w-full overflow-hidden rounded-md mb-4 aspect-square group/image">
+                <div
+                    className="relative w-full h-[170px] md:h-[240px]  lg:h-[300px] overflow-hidden rounded-md mb-4 aspect-square group/image">
                     {/* Base Image */}
                     <Image
                         src={image}
@@ -44,12 +43,12 @@ export default function ProductCard({product, showAddToCardBigBtn}) {
 
                     {discount && (
                         <div
-                            className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-4 py-2 rounded-full z-20">
+                            className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 md:px-4 md:py-2 rounded-full z-20">
                             {discount}
                         </div>
                     )}
                 </div>
-                <h3 className="text-xl font-semibold text-black text-center line-clamp-2 min-h-[3.5rem]">
+                <h3 className="md:text-xl font-semibold text-black text-center line-clamp-2 min-h-[3.5rem]">
                     {name}
                 </h3>
                 <ProductPrice price={price} originalPrice={originalPrice}/>
@@ -57,14 +56,14 @@ export default function ProductCard({product, showAddToCardBigBtn}) {
                     {colors.map((color) => (
                         <span
                             key={color}
-                            className="block size-5 rounded-full border border-gray-300"
+                            className="block size-3.5 md:size-5 rounded-full border border-gray-300"
                             style={{backgroundColor: color}}
                         ></span>
                     ))}
                 </div>
             </Link>
             {showAddToCardBigBtn && <button
-                className='w-full mt-10 bg-white border border-gray-200 text-slate-800 text-sm font-semibold uppercase tracking-wider py-3 px-8 rounded-full shadow-sm
+                className='w-full mt-7 md:mt-10 bg-white border border-gray-200 text-slate-800 text-xs md:text-sm font-semibold uppercase tracking-wider px-5 py-3 md:px-8 rounded-full shadow-sm
                hover:bg-gray-50 hover:border-gray-900
                transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
             >
