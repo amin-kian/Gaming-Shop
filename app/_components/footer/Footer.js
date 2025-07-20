@@ -11,7 +11,7 @@ export default function Footer() {
     const paymentIcons = getPaymentIcons()
 
     return (
-        <footer className="pb-16 w-full md:pb-0 bg-black text-gray-300 font-sans">
+        <footer className="pb-16 w-full md:pb-16 lg:pb-0 bg-black text-gray-300 font-sans">
             <div className="w-full mx-auto px-6 lg:px-16 pt-12 pb-5 lg:pt-20">
                 {/* Desktop and Tablet View: Grid Layout */}
                 <FooterDesktop/>

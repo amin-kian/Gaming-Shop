@@ -11,7 +11,6 @@ export default function ProductGridDisplay({displayedProducts, getGridClasses, c
         );
     }
 
-
     return (
         <div className={`px-4 lg:px-16 grid gap-2 ${getGridClasses()}`}>
             {displayedProducts.map((product) => (

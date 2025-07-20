@@ -17,7 +17,7 @@ export const metadata = {
 
 
 export default async function Home() {
-    const products = await getProducts(8);
+    const products = await getProducts(20);
     const hotspotsData = await getHotspotsData();
     const reviews = await getCustomerReviews(5);
 

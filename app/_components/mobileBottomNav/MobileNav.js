@@ -13,7 +13,7 @@ export default function MobileNav({wishlistCount = 0, cartItemCount = 0}) {
 
     return (
         <nav
-            className="fixed shadow-2xl z-200000000 bottom-0 left-0 right-0  flex h-16 bg-white border-t border-gray-200 md:hidden">
+            className="fixed shadow-2xl z-200000000 bottom-0 left-0 right-0  flex h-16 bg-white border-t border-gray-200 lg:hidden">
             {navItems.map((item) => (
                 <NavItem
                     key={item.label}

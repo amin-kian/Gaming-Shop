@@ -17,7 +17,6 @@ export function getCategories() {
     ];
 }
 
-
 export function getNavItems() {
     return [
         {
@@ -129,7 +128,7 @@ export function getInteractiveHeroBg() {
 export function getStoreFeatures() {
     return [
         {
-            id: 1, // Add unique IDs for the map key
+            id: 1,
             title: 'Free Shipping',
             description: 'You will love at great low prices',
             icon: (<LuBox/>),

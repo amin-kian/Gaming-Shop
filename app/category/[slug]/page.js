@@ -3,6 +3,13 @@ import {getProducts} from '@/app/_lib/fakerJs';
 import {getCategories} from "@/app/_lib/staticData";
 import CategoryPageClient from "@/app/_components/categoryPage/CategoryPageClient";
 
+export async function generateMetadata({params}) {
+    const categoryName = params.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    return {
+        title: categoryName,
+    };
+}
+
 export default async function CategoryPage({params, searchParams}) {
     const {slug} = params;
 

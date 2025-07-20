@@ -4,7 +4,7 @@ import Slider from "@/app/_components/slider/Slider";
 import ProductCard from "@/app/_components/products/ProductCard";
 import {getSaleEndDate} from "@/app/_lib/staticData";
 
-export default function ProductsSliderContainer({children, title, data, bg = 'bg-white', showAddToCardBigBtn}) {
+export default function ProductsSliderContainer({children, title, data, bg = 'bg-white', showAddToCardBigBtn = false}) {
     const saleEndDate = getSaleEndDate();
 
     const sliderBreakpoints = {

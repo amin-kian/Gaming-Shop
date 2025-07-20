@@ -33,7 +33,7 @@ export default function RootLayout({children}) {
 
         <ResponsiveHeader cartItemCount={cartCount}/>
 
-        <main className='lg:pt-[215px]'>
+        <main className='pt-22 lg:pt-[215px]'>
             {children}
         </main>
 

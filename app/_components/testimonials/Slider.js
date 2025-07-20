@@ -3,8 +3,8 @@
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper/modules";
 import Review from "@/app/_components/testimonials/Review";
-import SliderButtons from "@/app/_components/testimonials/SliderButtons";
 import {useRef} from "react";
+import SliderButtons from "@/app/_components/testimonials/SliderButtons";
 
 export default function Slider({reviews}) {
     const bgImgSrc = '/img/testimonialsBg.png'
