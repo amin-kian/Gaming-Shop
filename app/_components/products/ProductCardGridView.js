@@ -17,17 +17,17 @@ export default function ProductCardGridView({
     const getDynamicHeight = () => {
         switch (columnCount) {
             case 2:
-                return '170px md:240px lg:600px';
+                return 'w-full  h-170px md:h-240px lg:h-600px';
             case 3:
-                return '170px md:330px lg:400px';
+                return 'w-full  h-170px md:h-330px lg:h-400px';
             case 4:
-                return '170px md:270px lg:300px';
+                return 'w-full  h-170px md:h-270px lg:h-300px';
             case 5:
-                return '170px lg:230px';
+                return 'w-full  h-170px lg:h-230px';
             case 6:
-                return '170px lg:180px';
+                return 'w-full  h-170px lg:h-180px';
             default:
-                return 'h-[170px] md:h-[240px] lg:h-[300px]'
+                return 'w-full h-[170px] md:h-[240px] lg:h-[300px]'
         }
     };
 
