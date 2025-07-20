@@ -14,7 +14,7 @@ export default function ProductCardImage({
     return (
         <Link href={href}>
             <div
-                className={`relative w-full overflow-hidden rounded-md mb-4 aspect-square group/image flex-shrink-0 ${className}`}>
+                className={`relative overflow-hidden rounded-md mb-4 aspect-square group/image flex-shrink-0 ${className}`}>
                 <Image
                     src={images[0].src}
                     alt={images[0].alt}

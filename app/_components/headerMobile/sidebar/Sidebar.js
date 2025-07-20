@@ -22,9 +22,9 @@ const MobileSidebar = ({isOpen, setIsOpen}) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black/30 z-50 lg:hidden" role="dialog">
+        <div className="fixed inset-0 bg-black/30 z-5000000000 lg:hidden" role="dialog">
             <div
-                className={`absolute top-0 left-0 h-full w-[70%] max-w-sm bg-white shadow-xl transition-transform duration-500 ease-in-out ${
+                className={`absolute top-0 left-0 h-screen w-[70%] pb-20 max-w-sm bg-white shadow-xl transition-transform duration-500 ease-in-out ${
                     isOpen ? 'translate-x-0' : '-translate-x-full'
                 }`}
             >
@@ -49,6 +49,7 @@ const MobileSidebar = ({isOpen, setIsOpen}) => {
                                 Search
                             </Button>
                         </div>
+
                         <ShopInfo/>
 
                         <div className='pb-4 border-b border-gray-300'>

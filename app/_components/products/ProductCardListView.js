@@ -21,7 +21,7 @@ export default function ProductCardListView({
             className="w-full bg-white border-b border-gray-200 p-2 md:p-4 flex   items-start  justify-start gap-4  md:gap-7">
             {/* Image Section (Left) */}
             <ProductCardImage href={href} images={images} discount={discount}
-                              className={'w-50 h-70 md:w-100 md:h-120'}/>
+                              className='w-50 h-70 md:w-100 md:h-120'/>
 
             {/* Details Section (Right) */}
             <div className="flex flex-col gap-4 p-8 text-left">

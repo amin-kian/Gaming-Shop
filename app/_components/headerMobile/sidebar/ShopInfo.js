@@ -4,7 +4,7 @@ import {getShopInfo} from "@/app/_lib/staticData";
 export default function ShopInfo() {
     const shopInfo = getShopInfo()
     return (
-        <div className="pt-6 pb-20">
+        <div className="pt-6 pb-10">
             <h3 className="font-semibold text-gray-600 text-xs  mb-3 underline underline-offset-5">Need
                 help?</h3>
             <p className="text-sm text-gray-600">Address: {shopInfo.address}</p>
