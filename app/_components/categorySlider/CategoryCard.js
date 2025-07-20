@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export default function CategoryCard({image, name}) {
     return (
-        <Link href="#" className="group block flex flex-col items-center justify-center">
+        <Link href={`/category/${name.toLowerCase().replace(/\s+/g, '-')}`}
+              className="group flex flex-col items-center justify-center">
             <div
                 className="flex h-[130px] w-4/5 flex-col items-center justify-center rounded-xl bg-[#2C2F35] p-4">
                 <div className="relative h-25 w-full overflow-hidden">

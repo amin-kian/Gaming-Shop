@@ -9,9 +9,7 @@ import InteractiveHero from "@/app/_components/interactiveHero/InteractiveHero";
 import {getCustomerReviews, getHotspotsData, getProducts} from "@/app/_lib/fakerJs";
 import {getCategories, getSaleEndDate} from "@/app/_lib/staticData";
 import TimerLoader from "@/app/_components/products/CountDownLoader";
-import Footer from "@/app/_components/footer/Footer";
 import MapLoader from "@/app/_components/map/MapLoader";
-import MobileNav from "@/app/_components/mobileBottomNav/MobileNav";
 
 export const metadata = {
     title: "Home Page",
@@ -26,9 +24,8 @@ export default async function Home() {
 
     const categories = getCategories()
     const saleEndDate = getSaleEndDate();
-    const wishlistCount = 0;
-    const cartCount = 0;
-    
+
+
     return (
         <div>
             <FeaturedProducts products={products.slice(0, 2)}/>
@@ -56,10 +53,6 @@ export default async function Home() {
             <BrandCarousel/>
 
             <MapLoader/>
-
-            <Footer/>
-
-            <MobileNav wishlistCount={wishlistCount} cartItemCount={cartCount}/>
         </div>
     );
 }

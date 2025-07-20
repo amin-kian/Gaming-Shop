@@ -1,9 +1,7 @@
 import Header from "@/app/_components/header/Header";
 import HeaderMobile from "@/app/_components/headerMobile/HeaderMobile";
 
-export default function ResponsiveHeader() {
-    const cartItemCount = 0;
-
+export default function ResponsiveHeader({cartItemCount}) {
     return (
         <>
             {/* Render desktop header and hide on mobile */}

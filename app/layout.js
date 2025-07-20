@@ -3,6 +3,8 @@
 import {Poppins} from 'next/font/google';
 import "./globals.css";
 import ResponsiveHeader from "@/app/_components/ResponsiveHeader";
+import Footer from "@/app/_components/footer/Footer";
+import MobileNav from "@/app/_components/mobileBottomNav/MobileNav";
 
 
 const poppins = Poppins({
@@ -22,13 +24,23 @@ export const metadata = {
 };
 
 export default function RootLayout({children}) {
+    const wishlistCount = 0;
+    const cartCount = 0;
+
     return (
         <html lang="en">
         <body className={poppins.className}>
-        <ResponsiveHeader/>
+
+        <ResponsiveHeader cartItemCount={cartCount}/>
+
         <main className='lg:pt-[215px]'>
             {children}
         </main>
+
+        <Footer/>
+
+        <MobileNav wishlistCount={wishlistCount} cartItemCount={cartCount}/>
+
         </body>
         </html>
     );

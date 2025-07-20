@@ -3,7 +3,7 @@ import {getShopInfo} from "@/app/_lib/staticData";
 
 export default function Logo() {
     return (
-        <Link href="/" className="flex items-start justify-start">
+        <Link href="#" className="flex items-start justify-start">
             <svg
                 width="180"
                 height="60"
