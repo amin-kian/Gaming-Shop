@@ -5,9 +5,14 @@ import Buttons from "@/app/_components/headerMobile/Buttons";
 export default function HeaderMobile({cartItemCount}) {
     return (
         <header
-            className="w-full h-22 items-center justify-between px-4 py-4 grid grid-cols-3 bg-[#23252d] text-white">
+            className="w-full h-22 items-center px-4 py-4 grid grid-cols-3 bg-[#23252d] text-white">
+
             <MenuButton/>
-            <Logo/>
+
+            <div className="flex justify-center">
+                <Logo/>
+            </div>
+
             <Buttons cartItemCount={cartItemCount}/>
         </header>
     );
