@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE & Editor specific
+/.idea
+.vscode/
+
+# Environment variables
+# Never commit .env files!
+.env*.local
+.env
+
+# Log files
+pnpm-debug.log*
+
+# System files
+Thumbs.db
+
+# TypeScript cache
