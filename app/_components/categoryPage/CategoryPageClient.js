@@ -7,6 +7,7 @@ import ControlsBar from "@/app/_components/categoryPage/ControlsBar";
 import ProductGridDisplay from "@/app/_components/products/ProductGridDisplay";
 import FilterSidebar from "@/app/_components/categoryPage/filterCategory/FilterSidebar";
 import sortProducts from "@/app/_components/categoryPage/sortProducts";
+import Breadcrumb from "@/app/_components/breadcrumb/Breadcrumb";
 
 export default function CategoryPageClient({
                                                initialAllProducts,
@@ -149,9 +150,15 @@ export default function CategoryPageClient({
         updateUrlParams(sortOption, selectedColumnCount, filters.minPrice, filters.maxPrice);
     };
 
+    const breadcrumbItems = [
+        {name: 'Home', href: '/'},
+        {name: currentCategoryName, href: `/category/${currentCategoryName}`}
+    ];
 
     return (
         <Layout currentCategoryName={currentCategoryName}>
+            <Breadcrumb items={breadcrumbItems}/>
+
             <ControlsBar
                 selectedColumnCount={selectedColumnCount}
                 handleViewChange={handleViewChange}

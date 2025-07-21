@@ -2,7 +2,7 @@
 
 import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import {getShopInfo, getStorePosition} from "@/app/_lib/staticData";
+import {getShopInfo} from "@/app/_lib/staticData";
 import InfoBox from "@/app/_components/map/InfoBox";
 import L from 'leaflet';
 
@@ -15,7 +15,7 @@ L.Icon.Default.mergeOptions({
 
 
 export default function StoreMap() {
-    const position = getStorePosition()
+    const position = getShopInfo().position
     return (
         <section className="flex flex-col md:relative md:h-[600px]">
             <div className="h-[400px] md:h-full">

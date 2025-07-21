@@ -1,7 +1,8 @@
 import React from 'react';
-import Breadcrumb from "@/app/_components/productPage/Breadcrumb";
+import {notFound} from 'next/navigation';
+import Breadcrumb from "@/app/_components/breadcrumb/Breadcrumb";
 import ProductPageClient from "@/app/_components/productPage/productPageClient";
-import {getProductById, getProducts} from "@/app/_lib/fakerJs";
+import {getProductById, getProductsByCategory} from "@/app/_lib/fakerJs";
 
 export async function generateMetadata({params}) {
     const productName = params.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
@@ -11,23 +12,27 @@ export async function generateMetadata({params}) {
 }
 
 export default async function ProductPage({params}) {
-
     const slugParts = params.slug.split('-');
     const productId = slugParts[slugParts.length - 1];
-    // console.log(productId);
     const product = await getProductById(productId);
 
-    //
-    // const products = await getProducts(1);
-    // const product = products[0];
-    const relatedProducts = await getProducts(10);
+    if (!product) {
+        notFound();
+    }
 
+    const categorySlug = product.category.toLowerCase().replace(/\s+/g, '-');
+
+    const allProductsInCategory = await getProductsByCategory(categorySlug);
+
+    const relatedProducts = allProductsInCategory
+        .filter(p => p.id !== product.id)
+        .slice(0, 10);
 
     const breadcrumbItems = [
         {name: 'Home', href: '/'},
-        {name: product.name, href: `/products/${params.slug}`}
+        {name: 'Products', href: '/'},
+        {name: product.name, href: `/product/${params.slug}`}
     ];
-
 
     return (
         <div className="bg-white text-black">

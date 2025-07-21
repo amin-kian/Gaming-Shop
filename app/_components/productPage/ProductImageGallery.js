@@ -19,25 +19,22 @@ export default function ProductImageGallery({images, productName}) {
         if (!img) return;
 
         const {left, top, width, height} = img.getBoundingClientRect();
-
-        // Calculate cursor and lens position
         const x = e.pageX - left - window.scrollX;
         const y = e.pageY - top - window.scrollY;
 
-        const lensX = Math.max(0, Math.min(x - lensSize / 2, width - lensSize));
-        const lensY = Math.max(0, Math.min(y - lensSize / 2, height - lensSize));
-        setLensPosition({x: lensX, y: lensY});
+        setLensPosition({
+            x: Math.max(0, Math.min(x - lensSize / 2, width - lensSize)),
+            y: Math.max(0, Math.min(y - lensSize / 2, height - lensSize)),
+        });
 
-        const bgX = (x / width) * 100;
-        const bgY = (y / height) * 100;
-        setCursorPosition({x: bgX, y: bgY});
+        setCursorPosition({x: (x / width) * 100, y: (y / height) * 100});
     };
 
     return (
-        <div className='w-full flex flex-col lg:flex-row gap-4 h-auto md:h-150 '>
+        <div className='w-full flex flex-col lg:flex-row gap-4 h-auto md:h-150'>
             {/* Thumbnails Section */}
             <div className="w-full flex flex-row lg:flex-col gap-3 lg:gap-5 order-2 lg:order-1">
-                {images.map((image) => (
+                {images.map((image, index) => (
                     <button
                         key={image.id}
                         onClick={() => setActiveImage(image)}
@@ -50,6 +47,7 @@ export default function ProductImageGallery({images, productName}) {
                             fill
                             className="object-cover"
                             sizes="(max-width: 768px) 20vw, 10vw"
+                            priority={index === 0}
                         />
                     </button>
                 ))}
@@ -59,18 +57,19 @@ export default function ProductImageGallery({images, productName}) {
             <div className="relative w-full md:w-5/6 aspect-square order-1 lg:order-2">
                 <div
                     ref={imageContainerRef}
-                    className="relative w-full h-full bg-gray-100 rounded-lg overflow-hidden"
+                    className="relative w-full h-full lg:h-6/7 bg-gray-100 rounded-lg overflow-hidden"
                     onMouseEnter={() => setShowMagnifier(true)}
                     onMouseLeave={() => setShowMagnifier(false)}
                     onMouseMove={handleMouseMove}
                 >
                     <Image
-                        // src={activeImage.src}
-                        src='/img/1000.webp'
+                        key={activeImage.id}
+                        src={activeImage.src}
                         alt={productName}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 80vw, 50vw"
+                        priority
                     />
 
                     {/* The Lens */}
@@ -95,14 +94,13 @@ export default function ProductImageGallery({images, productName}) {
                         style={{
                             height: '70%',
                             width: '100%',
-                            top: '-10%',
+                            top: '5%',
                             right: '-125%',
                             backgroundColor: 'white',
-                            // backgroundImage: `url(${activeImage.src})`,
-                            backgroundImage: `url(${'/img/1000.webp'})`,
+                            backgroundImage: `url(${activeImage.src})`,
                             backgroundPosition: `${cursorPosition.x}% ${cursorPosition.y}%`,
                             backgroundRepeat: 'no-repeat',
-                            backgroundSize: '300% 300%',
+                            backgroundSize: '250% 250%',
                             boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
                             borderRadius: '8px',
                             zIndex: 10,

@@ -62,12 +62,6 @@ export function getSaleEndDate() {
     return saleEndDate;
 }
 
-export function getStorePosition() {
-    // Current location: Tehran, Iran
-    const position = [35.7219, 51.3347];
-    return position;
-}
-
 export function getHelpLinks() {
     return [
         {name: 'Privacy Policy', href: '#'},
@@ -116,6 +110,7 @@ export function getShopInfo() {
         address: '1234 Fashion Street, Suite 567, New York, NY',
         email: "info@fashionshop.com",
         phone: "(212)555-1234",
+        position: [35.7219, 51.3347],
     }
 }
 
