@@ -28,7 +28,7 @@ export default function FeaturedProducts({products}) {
             className="w-full flex flex-col justify-center items-center py-16 min-h-4/5 md:min-h-screen  px-4 sm:px-8 lg:px-16 bg-cover bg-center bg-no-repeat"
             style={{backgroundImage: `url(${backgroundImageSrc})`}}>
 
-            <div className="w-full mx-auto">
+            <div className="w-full mx-auto overflow-x-hidden">
                 <Slider data={products} breakpoints={sliderBreakpoints} renderItem={renderProductCard} btnColor="white"
                         uniqueId="featured-products"/>
             </div>

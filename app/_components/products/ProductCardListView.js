@@ -18,10 +18,10 @@ export default function ProductCardListView({
                                             }) {
     return (
         <div
-            className="w-full bg-white border-b border-gray-200  md:p-4 flex items-start  justify-start gap-3 md:gap-7">
+            className="w-full bg-white border-b border-gray-200  md:p-4 flex items-start  justify-start gap-3 lg:gap-7">
             {/* Image Section (Left) */}
             <ProductCardImage href={href} images={images} discount={discount}
-                              className='w-30 h-50 md:w-100 md:h-120'/>
+                              className='w-30 h-50 md:w-60 md:h-80 lg:w-100 lg:h-120'/>
 
             {/* Details Section (Right) */}
             <div className="flex flex-col gap-2 md:gap-4 py-2  md:p-8 md:py-0 text-left">
@@ -36,18 +36,18 @@ export default function ProductCardListView({
                         ${originalPrice.toFixed(2)}
                     </p>
                 )}
-                <p className={`text-sm md:text-xl font-bold ${originalPrice ? "text-red-600" : "text-black"}`}>${price.toFixed(2)}</p>
+                <p className={`text-sm lg:text-xl font-bold ${originalPrice ? "text-red-600" : "text-black"}`}>${price.toFixed(2)}</p>
 
                 {/* Full Description for List View */}
                 {description && (
-                    <p className="hidden md:block text-black text-sm md:text-base mb-4 line-clamp-3">
+                    <p className="hidden md:block text-black text-sm lg:text-base mb-4 line-clamp-3">
                         {description}
                     </p>
                 )}
 
                 {/* Colors */}
                 {colors && colors.length > 0 && (
-                    <div className="flex items-centerjustify-start gap-2 md:mb-4">
+                    <div className="flex items-centerjustify-start gap-2 lg:mb-4">
                         {colors.map((color) => (
                             <span
                                 key={color}
@@ -59,9 +59,9 @@ export default function ProductCardListView({
                 )}
 
                 {/* Action Buttons for List View */}
-                <div className="flex gap-2 mt-0 md:mt-4">
+                <div className="flex gap-2 mt-0 lg:mt-4">
                     <div
-                        className="transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-base md:text-3xl"
+                        className="transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-base lg:text-3xl"
                         style={{transitionDelay: '100ms'}}>
                         <ActionButton label="Add to Cart">
                             <MdOutlineShoppingBag/>
@@ -69,7 +69,7 @@ export default function ProductCardListView({
                     </div>
 
                     <div
-                        className="transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-base md:text-3xl"
+                        className="transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-base lg:text-3xl"
                         style={{transitionDelay: '200ms'}}>
                         <ActionButton label="Add to Wishlist">
                             <FaRegHeart/>
@@ -77,7 +77,7 @@ export default function ProductCardListView({
                     </div>
 
                     <div
-                        className="transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-base md:text-3xl"
+                        className="transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-base lg:text-3xl"
                         style={{transitionDelay: '300ms'}}>
                         <ActionButton label="Compare">
                             <LuArrowUpDown/>
@@ -85,7 +85,7 @@ export default function ProductCardListView({
                     </div>
 
                     <div
-                        className="transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-base md:text-3xl"
+                        className="transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-base lg:text-3xl"
                         style={{transitionDelay: '400ms'}}>
                         <ActionButton label="Quick View">
                             <FaRegEye/>

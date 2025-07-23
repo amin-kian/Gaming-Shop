@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {FaRegHeart, FaRegUser, FaSearch} from "react-icons/fa";
 import {IoClose} from "react-icons/io5";
 import Nav from "@/app/_components/headerMobile/sidebar/Nav";
@@ -7,6 +7,7 @@ import ShopInfo from "@/app/_components/headerMobile/sidebar/ShopInfo";
 
 
 const MobileSidebar = ({isOpen, setIsOpen}) => {
+    const sidebarRef = useRef(null);
 
     useEffect(() => {
         if (isOpen) {
@@ -19,11 +20,30 @@ const MobileSidebar = ({isOpen, setIsOpen}) => {
         };
     }, [isOpen]);
 
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        }
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen, setIsOpen]);
+
     if (!isOpen) return null;
 
     return (
         <div className="fixed inset-0 bg-black/30 z-5000000000 lg:hidden" role="dialog">
             <div
+                ref={sidebarRef}
                 className={`absolute top-0 left-0 h-screen w-[70%] pb-20 max-w-sm bg-white shadow-xl transition-transform duration-500 ease-in-out ${
                     isOpen ? 'translate-x-0' : '-translate-x-full'
                 }`}
@@ -72,7 +92,7 @@ const MobileSidebar = ({isOpen, setIsOpen}) => {
             </div>
 
             <div
-                className="absolute top-0 right-0 h-full w-[30%]"
+                className="absolute top-0 right-0 h-screen w-[30%] z-80000000 bg-gray-500/5"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close menu"
             ></div>
