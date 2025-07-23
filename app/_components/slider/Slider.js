@@ -74,7 +74,6 @@ export default function Slider({
                     clickable: true,
                     el: `.custom-pagination-${uniqueId}`,
                 }}
-                // ✅ Pass the stable useCallback function here
                 onSwiper={onSwiper}
                 slidesPerView={slidesPerView}
                 breakpoints={breakpoints}

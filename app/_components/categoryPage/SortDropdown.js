@@ -13,7 +13,7 @@ export default function SortDropdown({
         <div className="relative group text-xs md:text-base" ref={sortDropdownRef}>
             <button
                 onClick={() => setIsSortDropdownOpen(!isSortDropdownOpen)}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-300 hover:border-black rounded-md bg-white text-gray-800"
+                className="flex items-center gap-2 px-4 py-3.5 md:py-2 border border-gray-300 hover:border-black rounded-md bg-white text-gray-800"
             >
                 {sortOption} <IoIosArrowDown/>
             </button>

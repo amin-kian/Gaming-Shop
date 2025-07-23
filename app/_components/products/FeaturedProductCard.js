@@ -8,7 +8,7 @@ export default function FeaturedProductCards({
                                                  href,
                                              }) {
     return (
-        <div className="relative rounded-lg overflow-hidden group w-full h-[420px] md:h-[650px]">
+        <div className="relative rounded-lg overflow-hidden group w-full h-[450px] md:h-[650px]">
             <Image
                 src={image}
                 alt={name}
@@ -23,7 +23,7 @@ export default function FeaturedProductCards({
                     {name}
                 </p>
                 <h2 className="text-4xl font-bold mt-2">Best Seller</h2>
-                <p className="text-gray-300 mt-2">{description}</p>
+                <p className="text-xs md:text-base text-gray-300 mt-2 line-clamp-2">{description}</p>
                 <Link href={href}>
           <span
               className="inline-block mt-6 bg-white text-black font-semibold py-3 px-6 rounded-md hover:bg-gray-200 transition-colors">
