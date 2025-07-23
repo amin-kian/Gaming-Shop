@@ -10,7 +10,7 @@ export default function SortDropdown({
                                          sortDropdownRef
                                      }) {
     return (
-        <div className="relative group" ref={sortDropdownRef}>
+        <div className="relative group text-xs md:text-base" ref={sortDropdownRef}>
             <button
                 onClick={() => setIsSortDropdownOpen(!isSortDropdownOpen)}
                 className="flex items-center gap-2 px-4 py-2 border border-gray-300 hover:border-black rounded-md bg-white text-gray-800"
